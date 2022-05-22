@@ -1,0 +1,66 @@
+<!--Creating a Form to add new Student Details
+The function insertData is called on form submission
+It is located in the ts file-->
+<form (ngSubmit)="insertData()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="student.name"/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="student.email"/>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" name="phone" [(ngModel)]="student.phone"/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="student.password"/>
+    </div>
+
+    <div class="form-group">
+      <label for="date_of_joining">Date Of Joining</label>
+      <input type="date" class="form-control" name="date_of_joining" [(ngModel)]="student.date_of_joining"/>
+  </div>
+
+    <button type="submit" class="mb-10 btn btn-block btn-danger">Create User</button>
+</form>
+
+
+<!--END-->
+
+
+
+ <table class="table">
+   <thead>
+       <tr class="table-warning">
+         <td>ID</td>
+         <td>Name</td>
+         <td>Email</td>
+         <td>Phone</td>
+         <td>Date Of Joining</td>
+         <td class="text-center">Action</td>
+       </tr>
+   </thead>
+   <tbody>
+       
+    <!--Looping through the students array that fetches dynamic
+    data from the API. -->
+       <tr *ngFor="let stu of students">
+           <td>{{ stu._id }}</td>
+           <td>{{ stu.name }}</td>
+           <td>{{ stu.email }}</td>
+           <td>{{ stu.phone }}</td>
+           <td>{{ stu.date_of_joining }}</td>
+           <td class="text-center">
+            <button class="btn btn-danger btn-sm ml-5"  routerLink="edit/{{ stu._id }}">Edit</button>
+                 
+                   <button class="btn btn-danger btn-sm ml-5"  (click)="deleteData(stu._id)">Delete</button>
+                
+           </td>
+       </tr>
+      
+   </tbody>
+ </table>
+<div>

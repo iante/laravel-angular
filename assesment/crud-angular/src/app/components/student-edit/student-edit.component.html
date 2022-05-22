@@ -1,0 +1,35 @@
+<!--Creating a Form to add new Student Details
+The function insertData is called on form submission
+It is located in the ts file-->
+<form (ngSubmit)="updateStudentRecord()">
+    <div class="form-group" >
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="student.name"/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="student.email"/>
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" class="form-control" name="phone" [(ngModel)]="student.phone"/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="student.password"/>
+    </div>
+
+    <div class="form-group">
+      <label for="date_of_joining">Date Of Joining</label>
+      <input type="date" class="form-control" name="date_of_joining" [(ngModel)]="student.date_of_joining"/>
+  </div>
+
+    <button type="submit"  class="mb-10 btn btn-block btn-danger">Edit Student Record</button>
+</form>
+
+
+<!--END-->
+
+
+
+ 
